@@ -1,3 +1,4 @@
+import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 module.exports = {
   entry:"./src/index.jsx",
   output: {
@@ -8,7 +9,7 @@ module.exports = {
     contentBase: __dirname + '/public'
   },
   resolve:{
-    extensions:['.js', '.jsx' ],
+    extensions:['.js', '.jsx', '.css' ],
     alias: {
       modules: __dirname + '/node_modules'
     },
@@ -24,8 +25,14 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        use:{ loader : 'css-loader'}
-      }
+        loader : 'style-loader!css-loader'
+      },
     ],
   },
+  // plugins:[
+  //   new MiniCssExtractPlugin({
+  //     filename: "[name].css",
+  //     chunkFilename: "[id].css"
+  //   }),
+  // ],
 };
