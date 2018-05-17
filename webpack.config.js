@@ -1,4 +1,3 @@
-// const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 module.exports = {
   entry:"./src/index.jsx",
   output: {

@@ -1,19 +1,48 @@
 import React from 'react';
-import RaisedButton from 'material-ui/RaisedButton';
-import AppBar from 'material-ui/AppBar';
+import PropTypes from 'prop-types';
+import { withStyles } from '@material-ui/core/styles';
+import AppBar from '@material-ui/core/AppBar';
+import Toolbar from '@material-ui/core/Toolbar';
+import Typography from '@material-ui/core/Typography';
+import Button from '@material-ui/core/Button';
+import IconButton from '@material-ui/core/IconButton';
+import MenuIcon from '@material-ui/icons/Menu';
 
-function handleClick() {
-  alert('onClick triggered on the title component');
+const styles = {
+  root: {
+    flexGrow: 1,
+  },
+  flex: {
+    flex: 1,
+  },
+  menuButton: {
+    marginLeft: -12,
+    marginRight: 20,
+  },
+  menu: {
+    paddingTop: 44,
+  },
+};
+
+function Header(props) {
+  const { classes } = props;
+  return (
+    <div className={classes.root}>
+      <AppBar position="fixed">
+        <Toolbar>
+          <Typography variant="title" color="inherit" className={classes.flex}>
+           Academia
+          </Typography>
+          <Button color="inherit" href="#">Login</Button>
+        </Toolbar>
+      </AppBar>
+      <div className={classes.menu}></div>
+    </div>
+  );
 }
 
-const Header = () => (
-  <div>
-  <AppBar
-    title="Academia"
-    iconClassNameRight="muidocs-icon-navigation-expand-more"
-    onClick={handleClick}
-  />
-  </div>
-);
+Header.propTypes = {
+  classes: PropTypes.object.isRequired,
+};
 
-export default Header;
+export default withStyles(styles)(Header);
