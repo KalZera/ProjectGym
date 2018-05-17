@@ -1,14 +1,19 @@
 import React from 'react';
+import RaisedButton from 'material-ui/RaisedButton';
+import AppBar from 'material-ui/AppBar';
 
-export default props =>(
-  <nav>
-  <div className="nav-wrapper">
-    <a href="#" className="brand-logo">Logo</a>
-    <ul id="nav-mobile" className="right hide-on-med-and-down">
-      <li><a href="sass.html">Sass</a></li>
-      <li><a href="badges.html">Components</a></li>
-      <li><a href="collapsible.html">JavaScript</a></li>
-    </ul>
+function handleClick() {
+  alert('onClick triggered on the title component');
+}
+
+const Header = () => (
+  <div>
+  <AppBar
+    title="Academia"
+    iconClassNameRight="muidocs-icon-navigation-expand-more"
+    onClick={handleClick}
+  />
   </div>
-</nav>
-)
+);
+
+export default Header;
