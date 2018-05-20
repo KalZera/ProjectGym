@@ -11,6 +11,8 @@ import LocationOnIcon from '@material-ui/icons/LocationOn';
 const styles = {
   root: {
     width: 350,
+    bottom: 0,
+    position: 'fixed'
   },
 };
 

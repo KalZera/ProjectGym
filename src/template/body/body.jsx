@@ -1,21 +1,52 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+import { withStyles } from '@material-ui/core/styles';
+import List from '@material-ui/core/List';
+import ListItem from '@material-ui/core/ListItem';
+import ListItemText from '@material-ui/core/ListItemText';
+import ListSubheader from '@material-ui/core/ListSubheader';
 
-const style= {
-    marginTop:10,
+const styles = theme => ({
+  root: {
+    width: '100%',
+    maxWidth: 360,
+    backgroundColor: theme.palette.background.paper,
+    position: 'relative',
+    overflow: 'auto',
+    maxHeight: 300,
+  },
+  listSection: {
+    backgroundColor: 'inherit',
+  },
+  ul: {
+    backgroundColor: 'inherit',
+    padding: 0,
+  },
+});
+
+function PinnedSubheaderList(props) {
+  const { classes } = props;
+
+  return (
+    <List className={classes.root} subheader={<li />}>
+      {[0, 1, 2, 3, 4].map(sectionId => (
+        <li key={`section-${sectionId}`} className={classes.listSection}>
+          <ul className={classes.ul}>
+            <ListSubheader>{`Ficha ${sectionId+1}`}</ListSubheader>
+            {[0, 1, 2].map(item => (
+              <ListItem key={`item-${sectionId}-${item}`}>
+                <ListItemText primary={`Item ${item}`} />
+              </ListItem>
+            ))}
+          </ul>
+        </li>
+      ))}
+    </List>
+  );
+}
+
+PinnedSubheaderList.propTypes = {
+  classes: PropTypes.object.isRequired,
 };
 
-const Body = () => (
-  <div>
-    <p>
-    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-    </p>
-    <p>
-    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-    </p>
-    <p>
-    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-    </p>
-  </div>
-);
-
-export default Body;
+export default withStyles(styles)(PinnedSubheaderList);
