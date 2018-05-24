@@ -1,14 +1,16 @@
 import React from 'react';
 import Material from 'materialize-css';
-import Header from '../template/commom/header';
 import Bottom from '../template/commom/bottom';
-import Body from '../template/body/body';
+import ProfileName from '../template/body/profileName';
+import ProfileAvatar from '../template/body/profileAvatar';
 import Routes from './routes';
-// import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import { CSSTransition, Transition } from 'react-transition-group';
 
 const App = () => (
   <div>
-    <Body/>
+    {/* <Transition></Transition> */}
+      <ProfileName/>
+      <ProfileAvatar/>
     <Bottom/>
   </div>
 );
