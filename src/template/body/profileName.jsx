@@ -41,7 +41,7 @@ class Profile extends React.Component {
   };
 
   render() {
-    const { classes } = this.props;
+    const { classes, user } = this.props;
     const { auth, anchorEl } = this.state;
     const open = Boolean(anchorEl);
 
@@ -50,7 +50,7 @@ class Profile extends React.Component {
         <AppBar position="static">
           <Toolbar>
             <Typography variant="title" color="inherit" className={classes.flex}>
-              Nome Usuario
+              {user}
             </Typography>
             {auth && (
               <div>

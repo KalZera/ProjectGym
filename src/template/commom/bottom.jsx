@@ -7,12 +7,15 @@ import Icon from '@material-ui/core/Icon';
 import Home from '@material-ui/icons/home';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import LocationOnIcon from '@material-ui/icons/LocationOn';
+import Body from '../body/body';
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
 const styles = {
   root: {
     width: 350,
     bottom: 0,
-    position: 'fixed'
+    position: 'fixed',
+    margin: '0 auto'
   },
 };
 
@@ -30,11 +33,22 @@ class Bottom extends Component {
     const { value } = this.state;
 
     return (
-      <BottomNavigation value={value} onChange={this.handleChange} className={classes.root}>
-        <BottomNavigationAction label="Home" value="recents" icon={<Home />} />
-        <BottomNavigationAction label="Favorites" value="favorites" icon={<FavoriteIcon />} />
-        <BottomNavigationAction label="Nearby" value="nearby" icon={<LocationOnIcon />} />
-      </BottomNavigation>
+      <div>
+        <BottomNavigation value={value} onChange={this.handleChange} className={classes.root}>
+          <BottomNavigationAction label="Favorites" to="/" value="favorites" icon={<FavoriteIcon />} />
+          {/* <Link to="/about"><BottomNavigationAction label="Nearby" value="nearby" icon={<LocationOnIcon />} /></Link> */}
+        </BottomNavigation>
+        
+        <Router>
+
+          {/* <BottomNavigation value={value} onChange={this.handleChange} className={classes.root}>
+            <BottomNavigationAction to="/" label="Home" value="recents" icon={<Home />} />
+          </BottomNavigation> */}
+
+          <Route exact path="/" component={Body} />
+          <Route path="/about" component={Body} />
+        </Router>
+      </div>
     );
   }
 }

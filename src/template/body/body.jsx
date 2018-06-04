@@ -9,11 +9,11 @@ import ListSubheader from '@material-ui/core/ListSubheader';
 const styles = theme => ({
   root: {
     width: '100%',
-    maxWidth: 360,
+    maxWidth: 400,
     backgroundColor: theme.palette.background.paper,
     position: 'relative',
     overflow: 'auto',
-    maxHeight: 300,
+    maxHeight: 360,
   },
   listSection: {
     backgroundColor: 'inherit',
@@ -24,18 +24,23 @@ const styles = theme => ({
   },
 });
 
+const Ficha = ['A', 'B'];
+const Exercicio = ['Supino Reto', 'Rosca Direta', 'teste'];
+// const Ficha2 = {'A': ['Supino', 'Leg Press'],
+                // 'B': ['Leg press', 'teste']};
+
 function PinnedSubheaderList(props) {
   const { classes } = props;
 
   return (
     <List className={classes.root} subheader={<li />}>
-      {[0, 1, 2, 3, 4].map(sectionId => (
+      {Ficha.map(sectionId => (
         <li key={`section-${sectionId}`} className={classes.listSection}>
           <ul className={classes.ul}>
-            <ListSubheader>{`Ficha ${sectionId+1}`}</ListSubheader>
-            {[0, 1, 2].map(item => (
+            <ListSubheader>{`Ficha ${sectionId}`}</ListSubheader>
+            {Exercicio.map(item => (
               <ListItem key={`item-${sectionId}-${item}`}>
-                <ListItemText primary={`Item ${item}`} />
+                <ListItemText primary={`${item}`} />
               </ListItem>
             ))}
           </ul>
