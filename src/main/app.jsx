@@ -9,13 +9,7 @@ import ProfileAvatar from '../template/body/profileAvatar';
 const App = () => (
   <div>
     <ProfileName user="Usuario 1"/>
-    {/* <Routes/> */}
-
-    {/* <ProfileAvatar/>
-    <Buttons name="Ficha A"/>
-    <Buttons name="Ficha B"/>
-    <Buttons name="Ficha C"/> */}
-    {/* <Body/> */}
+    
     <Bottom/>
   </div>
 );

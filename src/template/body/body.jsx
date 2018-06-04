@@ -26,8 +26,6 @@ const styles = theme => ({
 
 const Ficha = ['A', 'B'];
 const Exercicio = ['Supino Reto', 'Rosca Direta', 'teste'];
-// const Ficha2 = {'A': ['Supino', 'Leg Press'],
-                // 'B': ['Leg press', 'teste']};
 
 function PinnedSubheaderList(props) {
   const { classes } = props;

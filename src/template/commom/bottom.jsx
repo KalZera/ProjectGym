@@ -8,6 +8,7 @@ import Home from '@material-ui/icons/home';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import LocationOnIcon from '@material-ui/icons/LocationOn';
 import Body from '../body/body';
+import ProfileAvatar from '../body/profileAvatar';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
 const styles = {
@@ -33,22 +34,18 @@ class Bottom extends Component {
     const { value } = this.state;
 
     return (
-      <div>
-        <BottomNavigation value={value} onChange={this.handleChange} className={classes.root}>
-          <BottomNavigationAction label="Favorites" to="/" value="favorites" icon={<FavoriteIcon />} />
-          {/* <Link to="/about"><BottomNavigationAction label="Nearby" value="nearby" icon={<LocationOnIcon />} /></Link> */}
-        </BottomNavigation>
-        
         <Router>
-
-          {/* <BottomNavigation value={value} onChange={this.handleChange} className={classes.root}>
-            <BottomNavigationAction to="/" label="Home" value="recents" icon={<Home />} />
-          </BottomNavigation> */}
-
-          <Route exact path="/" component={Body} />
-          <Route path="/about" component={Body} />
+          <div>
+            <BottomNavigation value={value} onChange={this.handleChange} className={classes.root}>
+              <Link to="/"><BottomNavigationAction label="Home" value="recents" icon={<Home />} /></Link>
+              <Link to="/home"><BottomNavigationAction label="Favorites" value="favorites" icon={<FavoriteIcon />} /></Link>
+              <BottomNavigationAction label="Nearby" value="nearby" icon={<LocationOnIcon />} />
+            </BottomNavigation>
+            
+            <Route exact path="/" component={Body} />
+            <Route path="/home" component={ProfileAvatar} />
+          </div>
         </Router>
-      </div>
     );
   }
 }

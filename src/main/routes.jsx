@@ -18,18 +18,11 @@ const BasicExample = () => (
       </ul>
 
       <hr />
-      <Route exact path="/" component={Home} />
-      <Route path="/about" component={Body} />
+      <Route exact path="/" component={Body} />
+      <Route path="/about" component={About} />
       <Route path="/topics" component={Topics} />
     </div>
   </Router>
-);
-
-const Home = () => (
-  <div>
-    {/* <Body/> */}
-    Home
-  </div>
 );
 
 const About = () => (
