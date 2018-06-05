@@ -24,7 +24,7 @@ function ProfileAvatar(props) {
     <div className={classes.row}>
       <Avatar
         alt="Profile Default"
-        src="../img/profile.jpg"
+        src="../img/profile.png"
         className={classNames(classes.avatar, classes.bigAvatar)}
       />
     </div>
