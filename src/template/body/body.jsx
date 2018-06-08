@@ -4,6 +4,7 @@ import { withStyles } from '@material-ui/core/styles';
 const styles = theme => ({
   body: {
     marginTop: 70,
+    width: 375
   },
 });
 
