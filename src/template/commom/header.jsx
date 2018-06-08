@@ -1,12 +1,7 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React, {Component} from 'react';
+import {AppBar, Toolbar, Typography, Menu, MenuItem, IconButton} from '@material-ui/core';
+import {AccountCircle} from '@material-ui/icons';
 import { withStyles } from '@material-ui/core/styles';
-import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
-import Typography from '@material-ui/core/Typography';
-import Button from '@material-ui/core/Button';
-import IconButton from '@material-ui/core/IconButton';
-import MenuIcon from '@material-ui/icons/Menu';
 
 const styles = {
   root: {
@@ -19,30 +14,66 @@ const styles = {
     marginLeft: -12,
     marginRight: 20,
   },
-  menu: {
-    paddingTop: 44,
+  btnLog: {
+    marginLeft: -12,
+    marginRight: 15,
   },
 };
 
-function Header(props) {
-  const { classes } = props;
-  return (
-    <div className={classes.root}>
-      <AppBar position="fixed">
-        <Toolbar>
-          <Typography variant="title" color="inherit" className={classes.flex}>
-           Academia
-          </Typography>
-          <Button color="inherit" href="#">Login</Button>
-        </Toolbar>
-      </AppBar>
-      <div className={classes.menu}></div>
-    </div>
-  );
-}
+class Header extends Component {
+  state = {
+    auth: true,
+    anchorEl: null,
+  };
+  // metodos de event click Menu
+  handleClick = event =>{
+    console.log('ok');
+    this.handleClose();
+  }
+  handleMenu = event => {
+    this.setState({ anchorEl: event.currentTarget });
+  };
 
-Header.propTypes = {
-  classes: PropTypes.object.isRequired,
-};
+  handleClose = () => {
+    this.setState({ anchorEl: null });
+  };
+
+
+
+  render(){
+    const props = this.props;
+    const {classes, name} = this.props;
+    const { auth, anchorEl } = this.state;
+    const open = Boolean(anchorEl);
+    // const IconButtonProps = "aria-owns={{open ? 'menu-appbar' : null}} aria-haspopup='true'  onClick={this.handleMenu}  color='inherit'";
+    return (
+      <div>
+        <AppBar>
+          <Toolbar>
+            <Typography variant="title" color="inherit" className={classes.flex}>
+              {props.name}
+            </Typography>
+            <div className={classes.btnLog}>
+              <IconButton aria-owns={open ? 'menu-appbar' : null} aria-haspopup='true'  onClick={this.handleMenu}  color='inherit' >
+                <AccountCircle />
+              </IconButton>
+              <Menu id="menu-appbar" anchorOrigin={{
+                  vertical: 'top',
+                  horizontal: 'right',
+                }} transformOrigin={{
+                  vertical: 'top',
+                  horizontal: 'right',
+                }} open={open}
+                onClose={this.handleClose} >
+                <MenuItem onClick={this.handleClick}>Log Out</MenuItem>
+                <MenuItem onClick={this.handleClose}>My account</MenuItem>
+              </Menu>
+            </div>
+          </Toolbar>
+        </AppBar>
+      </div>
+    );
+  }
+}
 
 export default withStyles(styles)(Header);
