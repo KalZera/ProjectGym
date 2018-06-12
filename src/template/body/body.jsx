@@ -3,7 +3,7 @@ import { withStyles } from '@material-ui/core/styles';
 
 const styles = theme => ({
   body: {
-    marginTop: 70,
+    marginTop: 55,
     width: 375
   },
 });

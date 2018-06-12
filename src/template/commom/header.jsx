@@ -47,31 +47,30 @@ class Header extends Component {
     const open = Boolean(anchorEl);
     // const IconButtonProps = "aria-owns={{open ? 'menu-appbar' : null}} aria-haspopup='true'  onClick={this.handleMenu}  color='inherit'";
     return (
-      <div>
-        <AppBar>
-          <Toolbar>
-            <Typography variant="title" color="inherit" className={classes.flex}>
-              {props.name}
-            </Typography>
-            <div className={classes.btnLog}>
-              <IconButton aria-owns={open ? 'menu-appbar' : null} aria-haspopup='true'  onClick={this.handleMenu}  color='inherit' >
-                <AccountCircle />
-              </IconButton>
-              <Menu id="menu-appbar" anchorOrigin={{
-                  vertical: 'top',
-                  horizontal: 'right',
-                }} transformOrigin={{
-                  vertical: 'top',
-                  horizontal: 'right',
-                }} open={open}
-                onClose={this.handleClose} >
-                <MenuItem onClick={this.handleClick}>Log Out</MenuItem>
-                <MenuItem onClick={this.handleClose}>My account</MenuItem>
-              </Menu>
-            </div>
-          </Toolbar>
-        </AppBar>
-      </div>
+      <AppBar>
+        <Toolbar>
+          <Typography variant="title" color="inherit" className={classes.flex}>
+            {props.name}
+          </Typography>
+          <div className={classes.btnLog}>
+            <IconButton aria-owns={open ? 'menu-appbar' : null} aria-haspopup='true'  onClick={this.handleMenu}  color='inherit' >
+              <AccountCircle />
+            </IconButton>
+            <Menu id="menu-appbar" anchorOrigin={{
+                vertical: 'top',
+                // top:60,
+                horizontal: 'right',
+              }} transformOrigin={{
+                vertical: 'top',
+                horizontal: 'right',
+              }} open={open}
+              onClose={this.handleClose} >
+              <MenuItem onClick={this.handleClick}>Log Out</MenuItem>
+              <MenuItem onClick={this.handleClose}>My account</MenuItem>
+            </Menu>
+          </div>
+        </Toolbar>
+      </AppBar>
     );
   }
 }

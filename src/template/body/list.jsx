@@ -4,7 +4,7 @@ import {Table, TableBody, TableCell, TableHead, TableRow, Paper} from '@material
 
 const CustomTableCell = withStyles(theme => ({
   head: {
-    backgroundColor: theme.palette.common.purple,
+    backgroundColor: '#3f51b5',
     color: theme.palette.common.white,
   },
   body: {
@@ -15,17 +15,20 @@ const CustomTableCell = withStyles(theme => ({
 const styles = theme => ({
   root: {
     width: '100%',
-    marginTop: theme.spacing.unit * 3,
     overflowX: 'auto',
   },
   table: {
     minWidth: 700,
+    heigth: 250
   },
   row: {
     '&:nth-of-type(odd)': {
       backgroundColor: theme.palette.background.default,
     },
   },
+  td:{
+    width:100
+  }
 });
 
 class List extends Component {
@@ -36,18 +39,18 @@ class List extends Component {
         <Table className={classes.table}>
           <TableHead>
             <TableRow>
-              <CustomTableCell> TESTE</CustomTableCell>
-              <CustomTableCell numeric> TESTE1</CustomTableCell>
-              <CustomTableCell numeric> TESTE2</CustomTableCell>
-              <CustomTableCell numeric> TESTE3</CustomTableCell>
+              <CustomTableCell className={classes.td}> TESTE</CustomTableCell>
+              <CustomTableCell className={classes.td} numeric> TESTE1</CustomTableCell>
+              <CustomTableCell className={classes.td} numeric> TESTE2</CustomTableCell>
+              <CustomTableCell className={classes.td} numeric> TESTE3</CustomTableCell>
             </TableRow>
           </TableHead>
           <TableBody>
             <TableRow className={classes.Row}>
-              <CustomTableCell component="th" scope="row"> TESTE</CustomTableCell>
-              <CustomTableCell numeric> TESTE1</CustomTableCell>
-              <CustomTableCell numeric> TESTE2</CustomTableCell>
-              <CustomTableCell numeric> TESTE3</CustomTableCell>
+              <CustomTableCell className={classes.td} component="th" scope="row"> TESTE</CustomTableCell>
+              <CustomTableCell className={classes.td} numeric> TESTE1</CustomTableCell>
+              <CustomTableCell className={classes.td} numeric> TESTE2</CustomTableCell>
+              <CustomTableCell className={classes.td} numeric> TESTE3</CustomTableCell>
             </TableRow>
           </TableBody>
         </Table>

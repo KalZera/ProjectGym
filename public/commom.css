@@ -1,3 +1,7 @@
 .btnFicha{
   width: 400px;
 }
+.app{
+  box-sizing: inherit;
+  -webkit-box-sizing: inherit;
+}
