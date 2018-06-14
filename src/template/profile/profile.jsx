@@ -9,6 +9,10 @@ const styles = {
     display: 'grid',
     justifyContent: 'center',
   },
+  font:{
+    fontSize: 20,
+    fontFamily: 'Roboto',
+  },
   avatar: {
     margin: 10,
   },
@@ -29,7 +33,7 @@ class Profile extends Component{
           className={classNames(classes.avatar, classes.bigAvatar)}
         />
         <div className={classes.row}>
-          <label>
+          <label className={classes.font}>
             {user}
           </label>
         </div>
