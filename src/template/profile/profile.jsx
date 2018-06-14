@@ -1,10 +1,40 @@
 import React, {Component} from 'react';
-import {Button} from '@material-ui/core';
+import classNames from 'classnames';
+import {Avatar} from '@material-ui/core';
 import { withStyles } from '@material-ui/core/styles';
+import img from '../img/profile.jpg';
+
+const styles = {
+  row: {
+    display: 'grid',
+    justifyContent: 'center',
+  },
+  avatar: {
+    margin: 10,
+  },
+  bigAvatar: {
+    width: 100,
+    height: 100,
+  },
+};
 
 class Profile extends Component{
   render(){
-    const {classes} = this.props;
+    const {classes, user} = this.props;
+    return(
+      <div className={classes.row}>
+        <Avatar
+          alt="Adelle Charles"
+          src={img}
+          className={classNames(classes.avatar, classes.bigAvatar)}
+        />
+        <div className={classes.row}>
+          <label center>
+            {user}
+          </label>
+        </div>
+      </div>
+    )
   };
 
 };
