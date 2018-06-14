@@ -29,7 +29,7 @@ class Profile extends Component{
           className={classNames(classes.avatar, classes.bigAvatar)}
         />
         <div className={classes.row}>
-          <label center>
+          <label>
             {user}
           </label>
         </div>
